@@ -1,0 +1,32 @@
+{
+	"row1": {
+		"strategy_name": {
+			"type": "string",
+			"value": "XAUUSD.martingale_atr"
+		},
+		"stop_loss": {
+			"type": "float",
+			"value": 100.0
+		}
+	},
+	"row2": {
+		"strategy_name": {
+			"type": "string",
+			"value": "AUDUSD.martingale_atr"
+		},
+		"stop_loss": {
+			"type": "float",
+			"value": 100.0
+		}
+	},
+	"row3": {
+		"strategy_name": {
+			"type": "string",
+			"value": "EURUSD.martingale_atr"
+		},
+		"stop_loss": {
+			"type": "float",
+			"value": 100.0
+		}
+	}
+}

@@ -1,0 +1,50 @@
+
+# --- Should we give JSON Values to style from here? ---- 
+{
+	"strategy_id": {
+		"value": "XAUUSD.martingale",
+		"type": "str",
+		"editable": "false"
+	},
+	"stoploss": {
+		"value": "1000",
+		"type": "int",
+		"editable": "true"
+	},
+	"strategy_status": {
+		"value": "TAKE_TRADE",
+		"type": "str",
+		"editable": "false"
+		# --- OR ---- Useful for applying filters..
+		"value": "1",
+		"type": "enum",
+		"options": ["TAKE_TRADE", "WAIT_FOR_SIGNAL", "WAIT_FOR_CLOSE", "STOPPED"],
+	},
+	"stop": {
+		"type": "button",
+		"action": "stop"
+	},
+	"start": {
+		"type": "button",
+		"action": "start"
+	},
+	"commit": {
+		"type": "button",
+		"action": "commit"
+	},
+	# --- Can Have a Sub-Record triggered by a internal GM button ---
+	"orders": {
+		"type": "sub-record",
+		"columns": ["id", "symbol", "type", "price", "stoploss", "takeprofit", "status"],
+		"rows": [
+			[1, "XAUUSD", "BUY", 1000, 900, 1100, "OPEN"],
+			[2, "XAUUSD", "SELL", 1100, 1200, 1000, "OPEN"]
+		]
+	},
+	# --- Some fields can be auto populated based on the action provided ---
+	"last_updated": {
+		"action": "current_timestamp",
+		"type": "datetime",
+		"editable": "false"
+	}
+}
