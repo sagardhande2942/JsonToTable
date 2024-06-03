@@ -59,7 +59,7 @@ class TextField:
 
   def __next__(self) -> Any:
     """Method to get the next value of the text field"""
-    if self.index >= len(self.rows):
+    if self.index > len(self.rows):
       self.index = 0
       raise StopIteration
     self.index += 1
