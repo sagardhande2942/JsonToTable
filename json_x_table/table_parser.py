@@ -11,7 +11,8 @@ from .text_field import TextField
 types_mapping = {
   "string": str,
   "boolean": bool,
-  "float": float
+  "float": float,
+  "int": int,
 }
 
 def parse_table(file_path: pathlib.Path) -> Table:
