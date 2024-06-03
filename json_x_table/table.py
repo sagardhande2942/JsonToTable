@@ -60,6 +60,7 @@ class Table:
 
   def to_html(self) -> str:
     """Method to get the HTML representation of the table"""
+    no_of_rows = len(self.columns[0]) if self.columns else 0
     html = """<style>
         table {
             border: 2px solid black;
@@ -83,10 +84,10 @@ class Table:
     table += "</tr>\n"
     table += "</thead>\n"
     table += "<tbody>\n"
-    for index in range(len(self.columns)):
+    for index in range(len(self.columns[0])):
       table += "<tr>\n"
-      for column in self.columns[index]:
-        table += f"<td>{column}</td>\n"
+      for column in self.columns:
+        table += f"<td>{column[index]}</td>\n"
       table += "</tr>\n"
     table += "</tbody>\n"
     table += "</table>\n"

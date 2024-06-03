@@ -1,6 +1,6 @@
 import pathlib
 
-from json_to_table import table_parser
+from json_x_table import table_parser
 
 
 def test_parse_table():
