@@ -85,8 +85,8 @@ class Table:
     table += "<tbody>\n"
     for index in range(len(self.columns)):
       table += "<tr>\n"
-      for column in self.columns:
-        table += f"<td>{column[index]}</td>\n"
+      for column in self.columns[index]:
+        table += f"<td>{column}</td>\n"
       table += "</tr>\n"
     table += "</tbody>\n"
     table += "</table>\n"
