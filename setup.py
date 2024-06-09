@@ -1,11 +1,11 @@
 from setuptools import find_packages, setup
 
-VERSION = '0.0.8' 
+VERSION = '0.1.0'
 DESCRIPTION = 'Convert your json dump files with a certain format to HTML tables in a fast and efficient way'
 LONG_DESCRIPTION = '''Convert your json dump files with a certain format to HTML tables in a fast and efficient way.\nYou may want to override the functions in order to match any format that you want, with specific customizable column values.'''
 
 setup(
-    name="json_x_table", 
+    name="json_x_table",
     version=VERSION,
     author="Sagar Dhande",
     author_email="dhandesagar78@gmail.com",
