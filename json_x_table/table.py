@@ -8,12 +8,13 @@ from .text_field import TextField
 class Table:
   """Class to represent HTML table like view in python"""
 
-  def __init__(self):
+  def __init__(self, column_order: list[str]):
     """Method to initialize the table with name.
       
     Args:
-      name: str: Name of the table
+      column_order: list[str]: List of column names
     """
+    self.column_order = column_order
     self.columns: list[TextField] = []
     self.columns_dict: dict[str, TextField] = {}
 
@@ -52,12 +53,6 @@ class Table:
       raise IndexError("Column not in table")
     return self.columns_dict[name].rows
 
-  def __str__(self) -> str:
-    """Method to get the string representation of the table"""
-    table = f"<table>\n"
-    table += f"<caption>{self.name}</caption>\n"
-    table += "<thead>\n"
-
   def to_html(self) -> str:
     """Method to get the HTML representation of the table"""
     no_of_rows = len(self.columns[0]) if self.columns else 0
@@ -79,15 +74,15 @@ class Table:
     table = f"{html}\n<table>\n"
     table += "<thead>\n"
     table += "<tr>\n"
-    for column in self.columns:
-      table += f"<th>{column.name}</th>\n"
+    for column_name in self.column_order:
+      table += f"<th>{column_name}</th>\n"
     table += "</tr>\n"
     table += "</thead>\n"
     table += "<tbody>\n"
     for index in range(len(self.columns[0])):
       table += "<tr>\n"
-      for column in self.columns:
-        table += f"<td>{column[index]}</td>\n"
+      for column_name in self.column_order:
+        table += f"<td>{self.columns_dict[column_name][index]}</td>\n"
       table += "</tr>\n"
     table += "</tbody>\n"
     table += "</table>\n"
