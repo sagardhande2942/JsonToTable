@@ -15,10 +15,10 @@ types_mapping = {
   "int": int,
 }
 
-def parse_table(file_path: pathlib.Path) -> Table:
+def parse_table(file_path: pathlib.Path, column_order: list[str]) -> Table:
   json_parser = JsonComment(json)
   data = json_parser.loads(file_path.read_text())
-  table = Table()
+  table = Table(column_order)
   for row, row_data in data.items():
     rows = []
     for column, value in row_data.items():
